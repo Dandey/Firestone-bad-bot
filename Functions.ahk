@@ -347,7 +347,7 @@ BigClose()
 return
 }
 
-;check to see if we are on the mainmenu in case script ends up badly on another menu, also skips the rate pop-up
+;check to see if we are on the mainmenu in case script ends up badly on another menu, also skips the rate pop-up, it is done via avatar color(default one light blue as that's where I am)
 MainMenu()
 {
 ControlFocus,, ahk_exe Firestone.exe
