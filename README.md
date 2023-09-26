@@ -1,4 +1,4 @@
-# FIrestone-bad-bot
+# Firestone-bad-bot
 A small script that automates some mechanics in Firestone Idle RPG
 Script is done in AHK so you will need version 1.1.33 to be able to run it
 
