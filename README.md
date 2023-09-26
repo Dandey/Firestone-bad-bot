@@ -17,4 +17,5 @@ Get prepared for a bit of wall text TL;DR a lot of limitations
 * No plan to implement function for the mini events.
 * UI looks a bit empty as I plan to add more stuff to it, will see if I will manage it or will just have to resize it a smaller size.
 * To run use FSbb, to close just exit the UI, or if it's running when you want to close it, either wait or use F10 to kill it
+* In case of server lag script might skip stuff
 * Won't answer to question about imformation that is listed here.
