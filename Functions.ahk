@@ -399,5 +399,17 @@ if(ErrorLevel=0)
 {
 return
 }
+PixelSearch, X, Y, 124, 81, 124, 81, 0x2BC3C6, 3, Fast RGB ;- background color blue
+;PixelSearch, X, Y, 124, 81, 124, 81, 0xAB44F7, 3, Fast RGB ;- background color purple
+if(ErrorLevel=1)
+{
+MouseMove, 960, 805
+Sleep, 1000
+Click
+}
+if(ErrorLevel=0)
+{
+return
+}
 return
 }
