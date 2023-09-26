@@ -14,4 +14,5 @@ Get prepared for a bit of wall text TL;DR a lot of limitations
 * Fail safe at the moment is hard-coded to my light blue color, if someone would help with the code for the other colors(have only for purple other than my blue)/ if someone needs to get the color, open Windows Spy, make it follow mouse and use the `Color` button from the UI to get the color code and replace at the end of `Functions.ahk` the current code with your one(but keep the Ox).
 * Would like to add claiming of dailies/ weeklies but so far not sure how to fully implement it, don't get your hopes too high.
 * No plan to implement function for the mini events.
+* UI looks a bit empty as I plan to add more stuff to it, will see if I will manage it or will just have to resize it a smaller size.
 * Won't answer to question about imformation that is listed here.
