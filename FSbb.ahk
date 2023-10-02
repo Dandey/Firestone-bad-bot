@@ -9,7 +9,7 @@ SetBatchLines -1
 Gui Font, s9, Segoe UI
 Gui Add, Tab3, x0 y-1 w292 h423, About|Script|Stats
 Gui Tab, 1
-Gui Add, Text, x0 y24 w289 h51 +0x200 +Center, Version 0.0.3 with sleek GUI for my sad script
+Gui Add, Text, x0 y24 w289 h51 +0x200 +Center, Version 0.0.3.1 with sleek GUI for my sad script
 Gui Add, Text, x0 y74 w288 h48 +0x200, A bit inspired from the one from Idle Champions
 Gui Add, Text, x1 y120 w285 h33 +0x200, but Custom made in Adventure-3.0.4
 Gui Tab, 2
@@ -19,12 +19,9 @@ Gui Tab, 2
 ;Gui Add, CheckBox, x141 y60 w120 h23, CheckBox
 ;Gui Add, Text, x2 y90 w120 h23 +0x200, Alchemy with exotic?
 ;Gui Add, CheckBox, x141 y90 w120 h23, CheckBox
-;Gui Add, Text, x2 y120 w120 h23 +0x200, Level range
-;Gui Add, DDL, x141 y120 w120 h23, 1-29(not working)|30-64(not working)|65-119(not working)|120-249|250-399(not working)|400-549|550-699(not working)|700-849(not working)|850-999(not working)|1000-1149(not working)|1150-(not working)
 Gui Add, Button, x3 y364 w80 h23, &START
 ;Gui Add, Button, x83 y364 w80 h23, &PAUSE
 ;Gui Add, Button, x162 y364 w80 h23, &STOP
-Gui Add, Button, x20 y160, Color
 Gui Tab, 3
 Gui Add, Text, x-1 y19 w288 h29 +0x200, Nothing here yet till i figure the rest out
 Gui Tab
@@ -32,14 +29,11 @@ Gui Tab
 Gui Show, w289 h420, Window
 Return
 
-ButtonColor:
-ControlFocus,, ahk_exe Firestone.exe
-Send {Click 124 81 0}
-
 ButtonStart:
 ControlFocus,, ahk_exe Firestone.exe
 Send {Click 124 81 0}
 Sleep, 1000
+GetColor()
 ClaimCampaign()
 Expedition()
 Guardian()
