@@ -3,6 +3,7 @@
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+global Color
 
 ;function to close menus
 BigClose()
@@ -347,18 +348,11 @@ BigClose()
 return
 }
 
-;check to see if we are on the mainmenu in case script ends up badly on another menu, also skips the rate pop-up, it is done via avatar color(default one light blue as that's where I am)
+;check to see if we are on the mainmenu in case script ends up badly on another menu, also skips the rate pop-up, it is done via avatar color(that is taken automatically on script start)
 MainMenu()
 {
 ControlFocus,, ahk_exe Firestone.exe
-;check via avatar
-;ImageSearch,X,Y,12,39,160,184, General\main2.png
-PixelSearch, X, Y, 124, 81, 124, 81, 0x2BC3C6, 3, Fast RGB ;- background color blue
-;PixelSearch, X, Y, 124, 81, 124, 81, 0xAB44F7, 3, Fast RGB ;- background color purple
-;check via battlepass
-;ImageSearch,X,Y,402,895,550,1026, General\main.png
-;small test of icons
-;ImageSearch,X,Y,13,253,123,663, General\icon.png
+PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 BigClose()
@@ -367,8 +361,7 @@ if(ErrorLevel=0)
 {
 return
 }
-PixelSearch, X, Y, 124, 81, 124, 81, 0x2BC3C6, 3, Fast RGB ;- background color blue
-;PixelSearch, X, Y, 124, 81, 124, 81, 0xAB44F7, 3, Fast RGB ;- background color purple
+PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 BigClose()
@@ -377,8 +370,7 @@ if(ErrorLevel=0)
 {
 return
 }
-PixelSearch, X, Y, 124, 81, 124, 81, 0x2BC3C6, 3, Fast RGB ;- background color blue
-;PixelSearch, X, Y, 124, 81, 124, 81, 0xAB44F7, 3, Fast RGB ;- background color purple
+PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 BigClose()
@@ -387,8 +379,7 @@ if(ErrorLevel=0)
 {
 return
 }
-PixelSearch, X, Y, 124, 81, 124, 81, 0x2BC3C6, 3, Fast RGB ;- background color blue
-;PixelSearch, X, Y, 124, 81, 124, 81, 0xAB44F7, 3, Fast RGB ;- background color purple
+PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 MouseMove, 1402, 327
@@ -399,17 +390,25 @@ if(ErrorLevel=0)
 {
 return
 }
-PixelSearch, X, Y, 124, 81, 124, 81, 0x2BC3C6, 3, Fast RGB ;- background color blue
-;PixelSearch, X, Y, 124, 81, 124, 81, 0xAB44F7, 3, Fast RGB ;- background color purple
+PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 MouseMove, 960, 805
 Sleep, 1000
 Click
+Sleep, 60000
 }
 if(ErrorLevel=0)
 {
 return
 }
 return
+}
+
+;function that automatically gets the color for the main menu check
+GetColor()
+{
+ ControlFocus,, ahk_exe Firestone.exe
+ PixelGetColor, Color, 124, 81, RGB
+ return
 }
