@@ -68,8 +68,9 @@ MapClose()
 ; it will go to missions stars if you have idle troops
 ImageSearch,X,Y,430,965,1245,1045, General\missions2.png
 if(ErrorLevel=0)
- MapStart()
+{ MapStart()
 return
+}
 }
  if(ErrorLevel=0)
 {
@@ -81,6 +82,7 @@ sleep, 1000
 MapRedeem()
 return
 }
+BigClose()
 return
 }
 
