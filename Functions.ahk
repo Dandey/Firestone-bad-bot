@@ -60,7 +60,8 @@ sleep, 1000
 click
 sleep, 1500
 ; opens map and tries to claim first mission, if the mission reward page will not be shown it will end
-ImageSearch, X,Y,686,319,1234,628, General\reward.png
+;ImageSearch, X,Y,686,319,1234,628, General\reward.png ;leaving this on comment in case it will be needed again in the future
+PixelSearch,Z,T, 476, 263, 476, 263, 0xE1CDAC, 3, Fast RGB
 If( ErrorLevel = 1)
 {
 sleep, 1500
@@ -74,10 +75,11 @@ return
 }
  if(ErrorLevel=0)
 {
-sleep, 1000
-MouseMove, 987, 469
-Sleep, 1500
-Click
+;commenting the below same on the principle as above function, in case it will required again at a later time, script works without them and saves a bit of time
+;sleep, 1000 
+;MouseMove, 987, 469
+;Sleep, 1500
+;Click
 sleep, 1000
 MapRedeem()
 return
@@ -94,7 +96,7 @@ For x,y in Point
 {
  Click %x%, %y%
 Sleep, 1500
- Click 963, 958
+ Click 1008, 864
 Sleep, 1500
  MapClose()
 Sleep, 1500
