@@ -80,12 +80,25 @@ return
 ;MouseMove, 987, 469
 ;Sleep, 1500
 ;Click
+ImageSearch, X,Y,858,609,1077,653, General\progress.png
+if(ErrorLevel=1)
+{MsgBox no progress
 sleep, 1000
 MapRedeem()
 return
 }
+if(ErrorLevel=0)
+{MsgBox progress
+MapClose()
+ImageSearch,X,Y,430,965,1245,1045, General\missions2.png
+if(ErrorLevel=0)
+{ MapStart()
+return
+}
+}
 BigClose()
 return
+}
 }
 
 ;function to start the map missions, should be all nodes + the gift missions for the world domination mini-event
