@@ -9,7 +9,7 @@ SetBatchLines -1
 Gui Font, s9, Segoe UI
 Gui Add, Tab3, x0 y-1 w292 h423, About|Script|Stats
 Gui Tab, 1
-Gui Add, Text, x0 y24 w289 h51 +0x200 +Center, Version 0.0.3.5 with sleek GUI for my sad script
+Gui Add, Text, x0 y24 w289 h51 +0x200 +Center, Version 0.0.3.6 with sleek GUI for my sad script
 Gui Add, Text, x0 y74 w288 h48 +0x200, A bit inspired from the one from Idle Champions
 Gui Add, Text, x1 y120 w285 h33 +0x200, but Custom made in Adventure-3.0.4
 Gui Tab, 2
