@@ -80,7 +80,7 @@ return
 ;MouseMove, 987, 469
 ;Sleep, 1500
 ;Click
-ImageSearch, X,Y,758,509,1177,753, General\progress.png
+ImageSearch, X,Y,858,609,1077,653, General\progress.png
 if(ErrorLevel=1)
 {
 sleep, 1000
