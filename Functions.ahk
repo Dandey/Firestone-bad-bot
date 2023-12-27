@@ -426,7 +426,7 @@ return
 GetColor()
 {
  ControlFocus,, ahk_exe Firestone.exe
- WinMove,ahk_exe Firestone.exe, , 0, 0, 1936, 1056
+ WinMove,ahk_exe Firestone.exe, , -6, -6, 1936, 1056
  PixelGetColor, Color, 124, 81, RGB
  return
 }
