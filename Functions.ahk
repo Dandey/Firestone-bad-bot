@@ -369,7 +369,7 @@ return
 MainMenu()
 {
 ControlFocus,, ahk_exe Firestone.exe
-PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
+PixelSearch, X, Y, 135, 54, 135, 54, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 BigClose()
@@ -378,7 +378,7 @@ if(ErrorLevel=0)
 {
 return
 }
-PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
+PixelSearch, X, Y, 135, 54, 135, 54, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 BigClose()
@@ -387,7 +387,7 @@ if(ErrorLevel=0)
 {
 return
 }
-PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
+PixelSearch, X, Y, 135, 54, 135, 54, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 BigClose()
@@ -396,7 +396,7 @@ if(ErrorLevel=0)
 {
 return
 }
-PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
+PixelSearch, X, Y, 135, 54, 135, 54, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 MouseMove, 1402, 327
@@ -407,7 +407,7 @@ if(ErrorLevel=0)
 {
 return
 }
-PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
+PixelSearch, X, Y, 135, 54, 135, 54, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 MouseMove, 960, 805
@@ -426,6 +426,6 @@ return
 GetColor()
 {
  ControlFocus,, ahk_exe Firestone.exe
- PixelGetColor, Color, 124, 81, RGB
+ PixelGetColor, Color, 135, 54, RGB
  return
 }
