@@ -429,3 +429,26 @@ GetColor()
  PixelGetColor, Color, 135, 54, RGB
  return
 }
+ClaimEngineer(){
+ControlFocus,, ahk_exe Firestone.exe
+MainMenu()
+MouseMove, 1869, 203
+Sleep, 1000
+click
+Sleep, 1500
+MouseMove, 1230, 820
+sleep, 1000
+click
+sleep, 1500
+MouseMove, 610, 540
+sleep, 1000
+click
+sleep, 1500
+MouseMove, 1642, 704
+sleep, 1000
+click
+sleep, 1500
+BigClose()
+BigClose()
+return
+}
