@@ -35,13 +35,15 @@ Send {Click 124 81 0}
 Sleep, 1000
 GetColor()
 ClaimCampaign()
+ClaimEngineer()
 Expedition()
 Guardian()
 Alchemist()
 GoFirestone()
 FirestoneTest()
+Oracle()
 GoMap()
-MapRedeem()
+MapRedeem2()
 loop
 {loop, 1
 {
@@ -51,12 +53,14 @@ loop
  }
 Sleep, 600000 ; wait another 10 mins and goes to make the map checks(and executes three times so 1h)
 GoMap()
-MapRedeem()
+MapRedeem2()
 ClaimCampaign()
+ClaimEngineer()
 Guardian()
 Alchemist()
 GoFirestone()
 FirestoneTest()
+Oracle()
 }
 GuiEscape:
 GuiClose:
