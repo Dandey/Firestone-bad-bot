@@ -1,4 +1,4 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 #SingleInstance force
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
@@ -11,7 +11,7 @@ BigClose()
 MouseMove, 1870, 96
 sleep, 1000
 click
-Sleep, 1500
+Sleep, 1000
 return
 }
 
@@ -22,7 +22,7 @@ ControlFocus,, ahk_exe Firestone.exe
 MouseMove, 1870, 706
 sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 return
 }
 
@@ -34,11 +34,11 @@ GoMap()
 MouseMove, 1857, 606
 sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 MouseMove, 165, 977
 sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 BigClose()
 return
 }
@@ -49,7 +49,7 @@ GoMap()
 MouseMove, 1863, 353
 Sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 }
 
 ;function to redeem the missions
@@ -58,16 +58,17 @@ ControlFocus,, ahk_exe Firestone.exe
 MouseMove, 94, 325
 sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 ; opens map and tries to claim first mission, if the mission reward page will not be shown it will end
-;ImageSearch, X,Y,686,319,1234,628, General\reward.png ;leaving this on comment in case it will be needed again in the future
+;ImageSearch, X,Y,781,570,1132,750, General\reward3.png
 PixelSearch,Z,T, 476, 263, 476, 263, 0xE1CDAC, 3, Fast RGB
 If( ErrorLevel = 1)
 {
-sleep, 1500
+sleep, 1000
 MapClose()
 ; it will go to missions stars if you have idle troops
-ImageSearch,X,Y,430,965,1245,1045, General\missions2.png
+;ImageSearch,X,Y,430,965,1245,1045, General\missions2.png
+PixelSearch,X,Y, 459, 1007, 459, 1007, 0xEFD9C0, 3, Fast RGB
 if(ErrorLevel=0)
 { MapStart()
 return
@@ -75,12 +76,11 @@ return
 }
  if(ErrorLevel=0)
 {
-;commenting the below same on the principle as above function, in case it will required again at a later time, script works without them and saves a bit of time
-;sleep, 1000 
-;MouseMove, 987, 469
-;Sleep, 1500
+ImageSearch, X,Y,758,509,1177,753, General\progress.png
+;sleep, 1000
+;MouseMove, Z,T
+;Sleep, 1000
 ;Click
-ImageSearch, X,Y,858,609,1077,653, General\progress.png
 if(ErrorLevel=1)
 {
 sleep, 1000
@@ -90,7 +90,8 @@ return
 if(ErrorLevel=0)
 {
 MapClose()
-ImageSearch,X,Y,430,965,1245,1045, General\missions2.png
+;ImageSearch,X,Y,430,965,1245,1045, General\missions2.png
+PixelSearch,X,Y, 459, 1007, 459, 1007, 0xEFD9C0, 3, Fast RGB
 if(ErrorLevel=0)
 { MapStart()
 return
@@ -103,20 +104,25 @@ return
 
 ;function to start the map missions, should be all nodes + the gift missions for the world domination mini-event
 MapStart(){
-Point := {1207:32,1290:99,1177:35,1104:43,883:460,616:204,581:295,672:423,884:233,828:375,923:369,1017:426,867:543,1228:550,655:357,712:517,1314:306,1340:545,1424:777,1438:871,1357:429,1452:498,1364:646,1162:454,980:228,1442:418,1066:970,633:576,502:330,538:190,733:229,1130:546,1041:518,812:637,874:664,705:592,460:670,1297:193,1394:355,1252:392,1486:770,910:759,1224:463,720:675,1255:853,1224:312,929:609,1481:261,463:433,1145:626,1326:798,556:500,1044:676,1099:894,780:845,1276:694,970:810,849:794,919:942,797:504,484:920,1460:580,671:755,547:1041,1055:780,1435:683,384:1009,1150:340,1221:467,742:389,967:547,1152:969,836:1039}
+Point := {1207:32,1290:99,1177:35,1104:43,883:460,616:204,581:295,672:423,884:233,828:375,923:369,1017:426,867:543,1228:550,655:357,712:517,1314:306,1340:545,1424:777,1438:871,1357:429,1452:498,1364:646,1162:454,980:228,1442:418,633:576,502:330,538:190,733:229,1130:546,1041:518,812:637,874:664,705:592,460:670,1297:193,1394:355,1252:392,1486:770,910:759,1224:463,720:675,1255:853,1224:312,929:609,1481:261,463:433,1145:626,1326:798,556:500,1044:676,1099:894,780:845,1276:694,970:810,849:794,797:504,484:920,1460:580,671:755,547:1041,1055:780,1435:683,384:1009,1150:340,1221:467,742:389,967:547,1152:969,836:1039}
 ControlFocus,, ahk_exe Firestone.exe
 For x,y in Point
 {
  Click %x%, %y%
-Sleep, 1500
- Click 1008, 864
-Sleep, 1500
+Sleep, 1000
+PixelSearch, X, Y, 1, 1, 1920, 1058, 0x0AA008, 3, Fast RGB
+if(ErrorLevel=0)
+{MouseMove, X,Y
+ Sleep, 1000
+ Click
+}
  MapClose()
-Sleep, 1500
- ImageSearch,X,Y,430,965,1245,1045, General\missions2.png
+Sleep, 1000
+;ImageSearch,X,Y,430,965,1245,1045, General\missions2.png
+PixelSearch,X,Y, 459, 1007, 459, 1007, 0xEFD9C0, 3, Fast RGB
 If(ErrorLevel=1)
 {
-sleep, 1500
+sleep, 1000
 BigClose()
 return
 }
@@ -132,17 +138,17 @@ MainMenu()
 MouseMove, 1857, 481
 sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 MouseMove, 308, 406
 sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 MouseMove, 1321, 331
 sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 BigClose()
 BigClose()
 return
@@ -156,17 +162,18 @@ MainMenu()
 MouseMove, 1869, 203
 Sleep, 1000
 click
-Sleep, 1500
+Sleep, 1000
 MouseMove, 511, 837
 Sleep, 1000
 click
-Sleep, 1500
+Sleep, 1000
 MouseMove, 949, 777
 Sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 ;checks if the alchemy was started or the spend gems screens appears
-ImageSearch,X,Y,10,10,1845,1045, General\gems.png
+;ImageSearch,X,Y,10,10,1845,1045, General\gems.png
+PixelSearch,X,Y, 1026, 331, 1338, 422, 0xEB00EF, 3, Fast RGB
  if (ErrorLevel = 0)
 {
 BigClose()
@@ -177,15 +184,15 @@ return
 MouseMove, 1282, 777
 Sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 MouseMove, 949, 777
 Sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 MouseMove, 1282, 777
 Sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 BigClose()
 BigClose()
 return
@@ -198,15 +205,15 @@ MainMenu()
 MouseMove, 1869, 203
 Sleep, 1000
 click
-Sleep, 1500
+Sleep, 1000
 MouseMove, 329, 657
 Sleep, 1000
 click
-sleep, 1500
+sleep, 1000
 MouseMove, 1809, 975
 Sleep, 1000
 click
-Sleep, 1500
+Sleep, 1000
 MouseMove, 1522,892
 return
 }
@@ -217,9 +224,10 @@ FirestoneTest()
  MouseMove, 567, 958
 Sleep, 1000
 click
-Sleep, 1500
+Sleep, 1000
 ;clicks to see if there is running missions or it can start
-ImageSearch,X,Y, 524,223,1394,384, General\gems.png
+;ImageSearch,X,Y, 524,223,1394,384, General\gems.png
+PixelSearch,X,Y, 1049, 318, 1338, 422, 0xEB00EF, 3, Fast RGB
 If(ErrorLevel=0)
 {
 MainMenu()
@@ -228,7 +236,7 @@ return
 MouseMove, 567, 958
 Sleep, 1000
 click
-Sleep, 1500
+Sleep, 1000
 ; tries to find first node available, if none is found it will scroll the tree and restart the function
 PixelSearch,X,Y, 205, 208, 1887, 850, 0x0D49DE, 3, Fast RGB
 if(ErrorLevel=1)
@@ -245,11 +253,11 @@ if(ErrorLevel=0)
 Sleep, 1000
 MouseMove, X, Y
 Click
-Sleep, 1500
+Sleep, 1000
 MouseMove, 812, 775
 Sleep, 1000
 Click
-Sleep, 1500
+Sleep, 1000
 ; after it starts the first node, it goes searching for the nodes in the following collumns
 PixelSearch,W,Z,X+400,Y,1887,850, 0x0D49DE, 3, Fast RGB
 if(ErrorLevel=0)
@@ -257,11 +265,11 @@ if(ErrorLevel=0)
 Sleep, 1000
 MouseMove, W, Z
 Click
-Sleep, 1500
+Sleep, 1000
 MouseMove, 812, 775
 Sleep, 1000
 Click
-Sleep, 1500
+Sleep, 1000
 BigClose()
 BigClose()
 return
@@ -275,11 +283,11 @@ if(ErrorLevel=1)
   Sleep, 1000
 MouseMove, W, Z
 Click
-Sleep, 1500
+Sleep, 1000
 MouseMove, 812, 775
 Sleep, 1000
 Click
-Sleep, 1500
+Sleep, 1000
 BigClose()
 BigClose()
 return
@@ -307,11 +315,11 @@ if(ErrorLevel=0)
 Sleep, 1000
 MouseMove, X, Y
 Click
-Sleep, 1500
+Sleep, 1000
 MouseMove, 812, 775
 Sleep, 1000
 Click
-Sleep, 1500
+Sleep, 1000
   loop, 35
  {
 Send {WheelUp}
@@ -336,30 +344,30 @@ MainMenu()
 MouseMove, 1869, 203
 Sleep, 1000
 click
-Sleep, 1500
+Sleep, 1000
 MouseMove, 658, 284
 Sleep, 1000
 click
-Sleep, 1500
+Sleep, 1000
 ImageSearch,X,Y, 193,159,624,268, General\evolve.png
 if(ErrorLevel=0)
 {
  MouseMove, 1450,174
  Sleep, 1000
  Click
- Sleep, 1500
+ Sleep, 1000
  MouseMove, 1117, 750
  Click
  Sleep, 10500
  MouseMove, 1291, 171
  Sleep, 1000
  Click
- Sleep, 1500
+ Sleep, 1000
 }
 MouseMove, 1138, 787
 Sleep, 1000
 click
-Sleep, 1500
+Sleep, 1000
 BigClose()
 BigClose()
 return
@@ -369,7 +377,7 @@ return
 MainMenu()
 {
 ControlFocus,, ahk_exe Firestone.exe
-PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
+PixelSearch, X, Y, 135, 54, 135, 54, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 BigClose()
@@ -378,7 +386,7 @@ if(ErrorLevel=0)
 {
 return
 }
-PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
+PixelSearch, X, Y, 135, 54, 135, 54, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 BigClose()
@@ -387,7 +395,7 @@ if(ErrorLevel=0)
 {
 return
 }
-PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
+PixelSearch, X, Y, 135, 54, 135, 54, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 BigClose()
@@ -396,7 +404,7 @@ if(ErrorLevel=0)
 {
 return
 }
-PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
+PixelSearch, X, Y, 135, 54, 135, 54, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 MouseMove, 1402, 327
@@ -407,7 +415,7 @@ if(ErrorLevel=0)
 {
 return
 }
-PixelSearch, X, Y, 124, 81, 124, 81, %Color%, 3, Fast RGB
+PixelSearch, X, Y, 135, 54, 135, 54, %Color%, 3, Fast RGB
 if(ErrorLevel=1)
 {
 MouseMove, 960, 805
@@ -426,7 +434,93 @@ return
 GetColor()
 {
  ControlFocus,, ahk_exe Firestone.exe
- WinMove,ahk_exe Firestone.exe, , -6, -6, 1936, 1056
- PixelGetColor, Color, 124, 81, RGB
+ ;WinMaximize, ahk_exe Firestone.exe
+ ;WinMove,ahk_exe Firestone.exe, , -1928, -8, 1936, 1056
+ Send {Click 135 54 0}
+ PixelGetColor, Color, 135, 54, RGB
  return
+}
+ClaimEngineer(){
+ControlFocus,, ahk_exe Firestone.exe
+MainMenu()
+MouseMove, 1869, 203
+Sleep, 1000
+click
+Sleep, 1000
+MouseMove, 1230, 820
+sleep, 1000
+click
+sleep, 1000
+MouseMove, 610, 540
+sleep, 1000
+click
+sleep, 1000
+MouseMove, 1642, 704
+sleep, 1000
+click
+sleep, 1000
+BigClose()
+BigClose()
+return
+}
+
+Oracle(){
+ MainMenu()
+ MouseMove, 1869, 203
+Sleep, 1000
+click
+Sleep, 1000
+ MouseMove, 1023, 904
+Sleep, 1000
+click
+Sleep, 1000
+ MouseMove, 809, 423
+Sleep, 1000
+click
+Sleep, 1000
+;PixelSearch, X, Y, 926, 416, 1758, 940, 0x0AA008, 3, Fast RGB
+PixelSearch, X, Y, 926, 416, 1758, 940, 0x0BA108, 3, Fast RGB
+if(ErrorLevel=0)
+{MouseMove, X+5,Y+5
+ Sleep, 1000
+click
+Sleep, 1000
+}
+;PixelSearch, X, Y, 926, 416, 1758, 940, 0x0AA008, 3, Fast RGB
+PixelSearch, X, Y, 926, 416, 1758, 940, 0x0BA108, 3, Fast RGB
+if(ErrorLevel=0)
+{MouseMove, X+5,Y+5
+ Sleep, 1000
+click
+Sleep, 1000
+}
+BigClose()
+BigClose()
+}
+
+
+MapRedeem2(){
+ ; opens map and tries to claim first mission, if the mission reward page will not be shown it will end
+ loop
+ {
+PixelSearch, X, Y, 1, 1, 1920, 1058, 0x0AA008, 3, Fast RGB
+if(ErrorLevel=0)
+{MouseMove, X,Y
+ Sleep, 1000
+ Click
+ Sleep, 1000
+MapClose()
+}
+if(ErrorLevel=1)
+{
+break
+}
+}
+PixelSearch,X,Y, 459, 1007, 459, 1007, 0xEFD9C0, 3, Fast RGB
+if(ErrorLevel=0)
+{ MapStart()
+return
+}
+BigClose()
+return
 }
