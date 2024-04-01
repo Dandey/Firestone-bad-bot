@@ -452,3 +452,34 @@ BigClose()
 BigClose()
 return
 }
+Oracle(){
+ MainMenu()
+ MouseMove, 1869, 203
+Sleep, 1000
+click
+Sleep, 1500
+ MouseMove, 1023, 904
+Sleep, 1000
+click
+Sleep, 1500
+ MouseMove, 809, 423
+Sleep, 1000
+click
+Sleep, 1500
+PixelSearch, X, Y, 926, 416, 1758, 940, 0x0BA108, 3, Fast RGB
+if(ErrorLevel=0)
+{MouseMove, X+5,Y+5
+ Sleep, 1000
+click
+Sleep, 1500
+}
+PixelSearch, X, Y, 926, 416, 1758, 940, 0x0BA108, 3, Fast RGB
+if(ErrorLevel=0)
+{MouseMove, X+5,Y+5
+ Sleep, 1000
+click
+Sleep, 1500
+}
+BigClose()
+BigClose()
+}
