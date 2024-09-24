@@ -133,7 +133,7 @@ MouseMove, 1857, 481
 sleep, 1000
 click
 sleep, 1500
-MouseMove, 308, 406
+MouseMove, 390, 360
 sleep, 1000
 click
 sleep, 1500
@@ -203,7 +203,7 @@ MouseMove, 329, 657
 Sleep, 1000
 click
 sleep, 1500
-MouseMove, 1809, 975
+MouseMove, 1814, 620
 Sleep, 1000
 click
 Sleep, 1500
