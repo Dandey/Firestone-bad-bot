@@ -112,7 +112,7 @@ For x,y in Point
 Sleep, 1000
 MouseMove, 50, 50
 Sleep, 200
-PixelSearch, X, Y, 1, 1, 1920, 1058, 0x0AA008, 3, Fast RGB
+PixelSearch, X, Y, 855, 771, 1920, 1058, 0x0AA008, 3, Fast RGB
 if(ErrorLevel=0)
 {MouseMove, X,Y
  Sleep, 1000
@@ -528,3 +528,4 @@ return
 BigClose()
 return
 }
+
