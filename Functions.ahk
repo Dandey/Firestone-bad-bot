@@ -258,7 +258,7 @@ Sleep, 1000
 MouseMove, X, Y
 Click
 Sleep, 1000
-MouseMove, 812, 775
+MouseMove, 812, 700
 Sleep, 1000
 Click
 Sleep, 1000
@@ -270,7 +270,7 @@ Sleep, 1000
 MouseMove, W, Z
 Click
 Sleep, 1000
-MouseMove, 812, 775
+MouseMove, 812, 700
 Sleep, 1000
 Click
 Sleep, 1000
@@ -288,7 +288,7 @@ if(ErrorLevel=1)
 MouseMove, W, Z
 Click
 Sleep, 1000
-MouseMove, 812, 775
+MouseMove, 812, 700
 Sleep, 1000
 Click
 Sleep, 1000
@@ -320,7 +320,7 @@ Sleep, 1000
 MouseMove, X, Y
 Click
 Sleep, 1000
-MouseMove, 812, 775
+MouseMove, 812, 700
 Sleep, 1000
 Click
 Sleep, 1000
