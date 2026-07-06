@@ -121,7 +121,7 @@ if(ErrorLevel=0)
  MapClose()
 Sleep, 1000
 ;ImageSearch,X,Y,430,965,1245,1045, General\missions2.png
-PixelSearch,X,Y, 459, 1007, 459, 1007, 0xEFD9C0, 3, Fast RGB
+PixelSearch,X,Y, 461, 1001, 461, 1001, 0xEFD7BD, 3, Fast RGB
 If(ErrorLevel=1)
 {
 sleep, 1000
@@ -520,7 +520,7 @@ if(ErrorLevel=1)
 break
 }
 }
-PixelSearch,X,Y, 459, 1007, 459, 1007, 0xEFD9C0, 3, Fast RGB
+PixelSearch,X,Y, 461, 1001, 461, 1001, 0xEFD7BD, 3, Fast RGB
 if(ErrorLevel=0)
 { MapStart()
 return
